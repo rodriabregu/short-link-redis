@@ -6,9 +6,10 @@ export default async function middleware(req: NextRequest) {
   const parts = pathname.split('/');
   const shortUrl = parts[parts.length - 1];
 
-  const longUrl = await redis.hget('links', shortUrl);
+  const longUrl: string | null = await redis.hget('links', shortUrl);
+  console.log('longUrl', longUrl);
   if (longUrl) {
-    const validUrl = getValidUrl(longUrl);
+    const validUrl: any = getValidUrl(longUrl);
     return NextResponse.redirect(validUrl);
   } else NextResponse.redirect(req.nextUrl.origin);
 }

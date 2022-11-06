@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Head from 'next/head';
 import { useCallback, useEffect, useState } from 'react';
+import { hostEnviroment } from '../lib/enviroment';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -73,7 +74,7 @@ export default function Home() {
                   className={styles.cells}
                     onClick={() => onShortUrlClick(short)}
                   >
-                    {`http://localhost:3000/go/${short}`}
+                    {`${hostEnviroment()}/go/${short}`}
                   </td>
                   <td className={styles.cells}>{long}</td>
                 </tr>
