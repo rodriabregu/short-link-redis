@@ -127,3 +127,18 @@
     filter: invert(1);
   }
 }
+
+.mainTable {
+  margin: auto;
+
+}
+
+.cells { 
+  border: gray 1px solid;
+  padding: 1rem;
+}
+
+.tdBold {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
