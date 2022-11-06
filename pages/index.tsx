@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   const onShortUrlClick = (shortLink: string) => {
-    const url = `http://localhost:3000/go/${shortLink}`;
+    const url = `${hostEnviroment()}/go/${shortLink}`;
     navigator.clipboard.writeText(url)
     .then(
       () => console.log('Copied link to clipboard.'),
