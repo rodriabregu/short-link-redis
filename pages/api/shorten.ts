@@ -1,6 +1,10 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { redis } from '../../lib/redis';
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { longUrl } = req.body;
 
   if (!longUrl || longUrl.length <= 0)

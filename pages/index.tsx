@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [longUrl, setLongUrl] = useState('');
   const [links, setLinks] = useState({});
-
+  console.log('links', links)
   const onCreate = async () => {
     await axios.post('/api/shorten', { longUrl });
     setLongUrl('');
@@ -67,7 +67,7 @@ export default function Home() {
           </thead>
           <tbody>
             {Object.keys(links).map((short) => {
-              const long = links[short]
+              const long = links[short as keyof typeof links];
               return (
                 <tr key={short}>
                   <td
